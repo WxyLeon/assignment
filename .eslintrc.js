@@ -1,26 +1,23 @@
 module.exports = {
-  root: true,
-  env: {
-    es6: true,
-    browser: true,
-    node: true
-  },
-  parser: '@typescript-eslint/parser', // 添加解析器
-  overrides: [ // 为特定的文件指示处理器
-    {
-      files: ['*.ts'], // 校验所有的ts文件
-      extends: [ // 继承eslint规则
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking'
-      ],
-      parserOptions: {
-        project: './tsconfig.json',
-        ecmaVersion: 2018,
-        sourceType: 'module'
-      }
-    }
-  ],
-  plugins: ['@typescript-eslint', 'prettier']
-}
-
+	parser: '@typescript-eslint/parser', // ESlint Parser
+	extends: [
+		'plugin:react/recommended', // 从@eslint-plugin-react中选择推荐的规则
+		'plugin:@typescript-eslint/recommended', // 从@typescript-eslint/eslint-plugin选择推荐的规则
+	],
+	parserOptions: {
+		ecmaVersion: 2018, // 帮助转化最先进的ECMAScript功能
+		sourceType: 'module', // 允许imports的用法
+		ecmaFeatures: {
+			jsx: true, // JSX兼容
+		},
+	},
+	rules: {
+		'@typescript-eslint/no-var-requires': 0,
+    "react/react-in-jsx-scope": "off"
+	},
+	settings: {
+		react: {
+			version: 'detect', // 告诉eslint-plugin-react自动检测最新版本的react
+		},
+	},
+};

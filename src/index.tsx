@@ -1,9 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { HashRouter as Router } from 'react-router-dom';
+import App from './App';
+import '@/styles/reset.less';
+import '@/styles/index.less';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-let a = 123;
-let b = 123123;
-root.render(<div>hello</div>);
-
-console.log(process.env.NODE_ENV, 'process.env.NODE_ENV')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+	<Router>
+		<App />
+	</Router>
+);
